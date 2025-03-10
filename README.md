@@ -1,1 +1,5 @@
-# M-todos_Computacionales
+# Metodos Computacionales
+
+## Actividades Integradoras
+
+Por: Fermín Nieto, A01707069

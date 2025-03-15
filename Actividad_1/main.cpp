@@ -52,7 +52,31 @@ string shuntingYard(const string& regex) {
                 // '*' siempre va después de un carácter o grupo
                 output += c;
                 prevWasChar = true;
-            }
+            } else if (c == '+') {
+                // Convierte `a+` en `aa*`
+                if (!output.empty() && isalnum(output.back())) {
+                    output += output.back(); // Duplicar el último carácter
+                    output += '*';
+                } else if (!output.empty() && output.back() == ')') {
+                    // Buscar inicio del grupo
+                    stack<char> tempStack;
+                    string group;
+                    
+                    // Extraer grupo hasta encontrar '('
+                    while (!output.empty() && output.back() != '(') {
+                        group = output.back() + group;
+                        tempStack.push(output.back());
+                        output.pop_back();
+                    }
+
+                    if (!output.empty() && output.back() == '(') {
+                        output.pop_back(); // Eliminar '('
+                        group = '(' + group; // Restaurar el grupo con '('
+                    }
+
+                    // Restaurar el grupo en la salida dos veces y agregar '*'
+                    output += group + group + "*";
+                }
         }
     }
 

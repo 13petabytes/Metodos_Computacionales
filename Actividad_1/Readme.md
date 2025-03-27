@@ -11,6 +11,8 @@ Conforme el cómo se estructuró el NFA. Este se encarga de traducir el postfijo
 
 Por último tenemos la clase DFA, la cual traduce el mapa y el estado de aceptación del NFA en las transiciones del DFA. Para esto cabe aclarar que la clase NFA, si bien expresa bien las transiciones, suele tener problemas a la hora de contar las mismas, a la par de generar transiciones vacías a la hora de recibir la entrada de caracteres consecutivos (abb => .a.b.b), las cuales generan callejones sin salida, donde deberían de haber transiciones epsilon a la siguiente instancia. Para esto la clase DFA antes de finiquitar la lectura del mapa, se asegura de que no exista más contenido en el mismo, en el caso de que existan, interpreta que la siguiente es la transición a la que tiene que ir la anterior. Esta clase solo tiene una función que construye, que llama “constructDFA”, la cual como aclare, se encarga de traducir las entradas dadas por la clase NFA.
 
+## Conclución:
+
 Como conclusión, puedo decir que este proyecto fue muy retador, principalmente por el algoritmo shunting yard, el cual me costó un tiempo el entender su utilidad y aplicación. Las cuales recaen en una mayor facilidad de entendimiento para la máquina, siendo similar al cambiar de vocabulario empleado al hablar, que al cambiar de idioma.
 
 Con respeto a los autómatas, he logrado entender mejor su funcionamiento, para esto me sirvió mucho el entender las transiciones mediante el diagrama de las mismas, aunque tuve que aprender que no podía representar de la misma forma en el mapa, porque en base del ejemplo dado en las instrucciones, logre entender las equivalencias que tenía que buscar como salida. 

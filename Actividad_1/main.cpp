@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <map>
+#include <set>
 #include "NFA.h"
 #include "DFA.h"
 
@@ -122,8 +124,6 @@ int main() {
     } while (true);
 
     cout << "Expresión válida ingresada: " << regex << endl;
-
-    
 
     string postfix = shuntingYard(regex);
     NFA nfa(postfix);

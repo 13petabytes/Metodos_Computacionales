@@ -5,13 +5,16 @@
 #include "DFA.h"
 
 using namespace std;
+
+// Función que define la precedencia de los operadores
 int precedence(char op) {
-    if (op == '*') return 3;   // Mayor precedencia
+    if (op == '*') return 3;   // Mayor precedencia (Cerradura de Kleene)
     if (op == '.') return 2;   // Concatenación implícita
     if (op == '|') return 1;   // Unión
     return 0;
 }
 
+// Función que convierte una expresión regular a notación posfija
 string shuntingYard(const string& regex) {
     stack<char> operators;
     string output;
@@ -22,17 +25,18 @@ string shuntingYard(const string& regex) {
 
         if (isalnum(c)) {  // Si es un carácter (a, b, etc.)
             if (prevWasChar) {
-                // Si hay un carácter previo, agregamos un operador de concatenación implícita
-                output += '.';
+                output += '.'; // Agrega concatenación implícita
             }
             output += c;
             prevWasChar = true;
         } else {
             if (c == '(') {
+                if (prevWasChar) {
+                    output += '.';  // Agregar concatenación implícita antes del paréntesis
+                }
                 operators.push(c);
                 prevWasChar = false;
             } else if (c == ')') {
-                // Sacar operadores hasta encontrar '('
                 while (!operators.empty() && operators.top() != '(') {
                     output += operators.top();
                     operators.pop();
@@ -49,8 +53,33 @@ string shuntingYard(const string& regex) {
                 operators.push(c);
                 prevWasChar = false;
             } else if (c == '*') {
-                // '*' siempre va después de un carácter o grupo
-                output += c;
+                output += c;  // '*' siempre va después de un carácter o grupo
+                prevWasChar = true;
+            } else if (c == '+') {
+                // Convierte `a+` en `aa*`
+                if (!output.empty() && isalnum(output.back())) {
+                    output += output.back(); // Duplicar el último carácter
+                    output += '*';
+                } else if (!output.empty() && output.back() == ')') {
+                    // Buscar inicio del grupo
+                    stack<char> tempStack;
+                    string group;
+                    
+                    // Extraer grupo hasta encontrar '('
+                    while (!output.empty() && output.back() != '(') {
+                        group = output.back() + group;
+                        tempStack.push(output.back());
+                        output.pop_back();
+                    }
+
+                    if (!output.empty() && output.back() == '(') {
+                        output.pop_back(); // Eliminar '('
+                        group = '(' + group; // Restaurar el grupo con '('
+                    }
+
+                    // Restaurar el grupo en la salida dos veces y agregar '*'
+                    output += group + group + "*";
+                }
                 prevWasChar = true;
             }
         }
@@ -64,7 +93,6 @@ string shuntingYard(const string& regex) {
 
     return output;
 }
-
 
 int main() {
     string regex;

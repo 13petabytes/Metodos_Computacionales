@@ -3,15 +3,14 @@
 ;; Manejo de Automata y entradas
 
 (define (validate automata cadenas)
-
-  ;; Divición de la variable automata
+  ;; Divición de la variable cadena
   (define estados (first automata))      ; 1. Definir los estados del autómata, complejidad O(1)
   (define alfabeto (second automata))    ; 2. Definir el alfabeto, complejidad O(1)
   (define transiciones (third automata)) ; 3. Definir las transiciones, complejidad O(1)
   (define inicio (fourth automata))      ; 4. Definir el estado inicial, complejidad O(1)
   (define finales (fifth automata))      ; 5. Definir los estados finales, complejidad O(1)
 
-  ;; Construcción de la tabla de transiciones, complejidad O(T), donde T es el numero de numero de transisiones
+  ;; Construcción del mapa de transiciones, complejidad O(T), donde T es el numero de numero de transisiones
   (define tabla-transiciones
     (map (lambda (t)
            (cons (list (first t) (second t)) (third t)))

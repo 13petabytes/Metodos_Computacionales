@@ -55,3 +55,17 @@ O(C * L * T)
 </div>
 <br>
 
+## Reflección sobre la implementación:
+
+Si bien el código presentado funciona correctamente, este mismo está sujeto a mejoras, ya que cabe la posibilidad de bajar su complejidad al cambiar la búsqueda lineal de siguiente-estado baje a O(1), esto con el uso de hash-table. Si bien se conoce la posibilidad de esto, al tener problemas en su implementación se descartó este método y se acabó optando por la aplicación de complejidad lineal.
+
+## Reporte y reflexión final
+La realización de este proyecto me permitió repasar y profundizar mis conocimientos en el lenguaje Racket, llevándome a explorar aspectos del lenguaje que van más allá de lo visto en clase. Esto fue necesario para comprender con mayor claridad cómo se manejan las variables internamente y cómo estructurar un código más eficiente y legible.
+
+Asimismo, el proyecto representó un reto estimulante, no solo por el uso del lenguaje en sí, sino también por la necesidad de retomar y aplicar conceptos fundamentales de autómatas. Para ello, fue necesario revisar el proyecto anterior, lo que me permitió reforzar mi comprensión sobre la representación y manejo de autómatas dentro del código.
+
+Si bien considero que la aplicación aún tiene áreas de oportunidad y puede ser optimizada, el resultado obtenido no me resulta insatisfactorio. Al contrario, me deja una base sólida sobre la cual seguir mejorando.
+
+En conclusión, este proyecto fue una experiencia amena y retadora, que me ayudó a consolidar conocimientos tanto de programación funcional como de teoría de autómatas. Me motivó a ir más allá de lo teórico, aplicando conceptos de forma práctica en el desarrollo de una herramienta funcional.
+
+

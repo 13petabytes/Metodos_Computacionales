@@ -1,7 +1,7 @@
 // =================================================================
 //
 // File: Actividad_12.cpp
-// Author: Fermín Nieto (modificado por ChatGPT)
+// Author: Fermín Nieto 
 // Description: Problema de producto-consumidor modificado. 
 //
 // =================================================================

@@ -1,7 +1,7 @@
 // =================================================================
 //
 // File: Actividad_11.cpp
-// Author: Fermín Nieto (modificado por ChatGPT)
+// Author: Fermín Nieto 
 // Description: Crea 4 hilos, solo 2 pueden ejecutarse al mismo tiempo.
 //              Cada hilo imprime "Ya me ejecuté" y termina.
 //

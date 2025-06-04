@@ -39,7 +39,7 @@ __device__ bool esPrimo(int n) {
     return true;
 }
 
-__global__ void sumaPrimosKernel(long long* resultados) {
+__global__ void sumaPrimos(long long* resultados) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     int totalThreads = gridDim.x * blockDim.x;
 
@@ -72,7 +72,7 @@ int main() {
     cudaEventRecord(start);
 
     // Lanzar kernel con 32 x 512 configuración
-    sumaPrimosKernel<<<BLOCKS, THREADS>>>(d_resultados);
+    sumaPrimos<<<BLOCKS, THREADS>>>(d_resultados);
     cudaDeviceSynchronize();
 
     cudaEventRecord(stop);

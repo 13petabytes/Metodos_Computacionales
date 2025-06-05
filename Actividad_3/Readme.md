@@ -48,6 +48,8 @@ Al observar los resultados podemos confirmar los aseverado anteriormente, y es q
 
 Para mejor entendimiento de esto, tenemos esta gráfica, donde las abscisas representan el número de hilos y las abscisas la eficiencia, el punto representa el número de hilos y la eficiencia del programa con 11 hilos (11,6.5/11):
 
+![image](https://github.com/user-attachments/assets/224ea768-a0b1-4826-98c2-25f66e4d29f5)
+
 
 La ecuación empleada para esto es la siguiente:
 
@@ -69,6 +71,7 @@ S(P)= 5.0942 + 0.5862 * ln(P)
 
 Gráfica de la fórmula. El eje x representa el número de hilos y el eje y el incremento en la eficiencia:
 
+![image](https://github.com/user-attachments/assets/b91ae663-9abd-4fcb-af7c-bd2ffb8df7e1)
 
 
 En este caso, los números presentes son las eficiencias obtenidas y el ln(P), el porqué se escogió una ecuación con estas propiedades, se debe al comportamiento que presentó el speed up, al ser abrupto al inicio. Como tal la ecuación no presenta una eficiencia infalible, pero sí una considerable, pudiendo demostrar esto con la ley de Amdahl.

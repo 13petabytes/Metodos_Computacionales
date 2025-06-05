@@ -17,7 +17,17 @@ En este caso, estos métodos serán sometidos a la tarea de sumar los números p
 
 ### Desarrollo
 
-Como tal todas las versiones realizadas siguiendo la misma estructura, main define el número de hilos en los que será dividida la tarea, de ser necesario, para posteriormente llamar a “sumarPrimos”, función que con la ayuda de “esPrimo”, para detectar los números requeridos, va sumando de uno en uno los números. En los casos en los que se empleó la división por hilos y la tecnología CUDA, se divide el segmento de número a checar y sumar en el número correspondiente de hilos, para posteriormente sumar cada resultado. En el caso de CUDA, esto se profundiza, al tener 512 bloques, de cada uno 32 hilos, se podría decir que la división es similar a una matriz, donde cada columna es un arreglo de hilos, profundizando aún más la división del trabajo al darle tercera dimensión, y similar a los apuntes de Adam Smith, se eficienta más el tiempo a más división de trabajo exista. Por lo que al comparar los 11 hilos que están trabajando en el programa con programación paralela con los 16,384 del desarrollado con CUDA, podemos presuponer de antemano, cuál será más rápido.
+Como tal todas las versiones realizadas siguiendo la misma estructura, main define el número de hilos en los que será dividida la tarea, de ser necesario, para posteriormente llamar a “sumarPrimos”, función que con la ayuda de “esPrimo”, para detectar los números requeridos, va sumando de uno en uno los números. La complejidad seria representada de la siguiente forma:
+
+<br>
+<div align="center">
+O(n√n)
+</div>
+</br>
+
+Esto se debe a que por cada número entre 1 y n se realiza una verificación de primalidad que, en el peor de los casos, recorre hasta su raíz cuadrada, generando así una complejidad compuesta que crece como el producto entre n y la raíz de n.
+
+En los casos en los que se empleó la división por hilos y la tecnología CUDA, se divide el segmento de número a checar y sumar en el número correspondiente de hilos, para posteriormente sumar cada resultado. En el caso de CUDA, esto se profundiza, al tener 512 bloques, de cada uno 32 hilos, se podría decir que la división es similar a una matriz, donde cada columna es un arreglo de hilos, profundizando aún más la división del trabajo al darle tercera dimensión, y similar a los apuntes de Adam Smith, se eficienta más el tiempo a más división de trabajo exista. Por lo que al comparar los 11 hilos que están trabajando en el programa con programación paralela con los 16,384 del desarrollado con CUDA, podemos presuponer de antemano, cuál será más rápido.
 
 ### Tiempo de ejecución y speed up
 

@@ -1,4 +1,6 @@
-# Reflexión y reporte:
+# Reporte Actividad Integradora N.1
+
+## Reflexión y reporte:
 
 
 El proyecto está separado en tres partes importantes, la primera está conformada por la función, que se encuentra en el main.cpp, “string shuntingYard(const string& regex)”. Esta función tiene la responsabilidad de transformar una expresión regular en una forma más legible para el objeto NFA, en la forma de un postfijo. Para esto nos hacemos uso del Algoritmo shunting yard, el cual se piensa para transformar en infijo a postfijo. Como ejemplo, la expresión (a|b)*abb, se convierte en ab|*.a.b.b.

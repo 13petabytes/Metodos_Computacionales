@@ -27,10 +27,14 @@ Procediendo a los resultados, estos son los tiempos de ejecución de cada progra
 
 	
 Con esto podemos calcular tanto la eficiencia que las versiones que dividen presentan sobre el modelo de ejecución secuencial, permitiendo así, el tener una vara de medir igual para cada método que busca mejorar el tiempo del algoritmo secuencial. Para esto se emplean las siguientes ecuaciones:
-
+<br>
+<div align="center">
 Speed up = Tiempo de ejecución secuencial / Tiempo de ejecución a comparar
 
 Eficiencia = Speed up / Número de procesadores totales empleados
+</div>
+</br>
+
 
 Tabla con cálculos:
 
@@ -44,7 +48,11 @@ Para mejor entendimiento de esto, tenemos esta gráfica, donde las abscisas repr
 
 La ecuación empleada para esto es la siguiente:
 
+<br>
+<div align="center">
 E(P) = S(P) / P
+</div>
+</br>
 	
 Donde E(P) representa el cuánto valdrá  la eficiencia, S(P) el Speed up en base al número de hilos y P el número de hilos. Como se puede concluir a simple vista, el valor que nos da un speed up también nos la da una función. Esta se define de la siguiente forma:
 

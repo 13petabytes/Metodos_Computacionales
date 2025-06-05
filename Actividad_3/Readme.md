@@ -25,7 +25,7 @@ O(n√n)
 </div>
 </br>
 
-Esto se debe a que por cada número entre 1 y n se realiza una verificación de primalidad que, en el peor de los casos, recorre hasta su raíz cuadrada, generando así una complejidad compuesta que crece como el producto entre n y la raíz de n.
+Esto se debe a que por cada número entre 1 y n se realiza una verificación de primalidad que, en el peor de los casos, recorre hasta su raíz cuadrada, generando así una complejidad compuesta que crece como el producto entre n y la raíz de n. Todos los programas comparten la misma complejidad.
 
 En los casos en los que se empleó la división por hilos y la tecnología CUDA, se divide el segmento de número a checar y sumar, en el número correspondiente de hilos, para posteriormente sumar las sumas echas por cada hilo. En el caso de CUDA, esto se profundiza, al tener 512 bloques, de cada uno 32 hilos, se podría decir que la división es similar a una matriz, donde cada columna es un arreglo de hilos, profundizando aún más la división del trabajo al elevarla a una tercera dimensión, y similar a los apuntes de Adam Smith, se eficienta más el tiempo de trabajo a más división de trabajo exista. Por lo que al comparar los 11 hilos que están trabajando en el programa con programación paralela con los 16,384 del desarrollado con CUDA podemos presuponer de antemano, cuál será más rápido.
 

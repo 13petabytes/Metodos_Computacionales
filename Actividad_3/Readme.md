@@ -24,14 +24,17 @@ Como tal todas las versiones realizadas siguiendo la misma estructura, main defi
 Procediendo a los resultados, estos son los tiempos de ejecución de cada programa:
 
 
-
 	
 Con esto podemos calcular tanto la eficiencia que las versiones que dividen presentan sobre el modelo de ejecución secuencial, permitiendo así, el tener una vara de medir igual para cada método que busca mejorar el tiempo del algoritmo secuencial. Para esto se emplean las siguientes ecuaciones:
+
+
 <br>
 <div align="center">
+	
 Speed up = Tiempo de ejecución secuencial / Tiempo de ejecución a comparar
 
 Eficiencia = Speed up / Número de procesadores totales empleados
+
 </div>
 </br>
 
@@ -50,13 +53,19 @@ La ecuación empleada para esto es la siguiente:
 
 <br>
 <div align="center">
+	
 E(P) = S(P) / P
+
 </div>
 </br>
 	
 Donde E(P) representa el cuánto valdrá  la eficiencia, S(P) el Speed up en base al número de hilos y P el número de hilos. Como se puede concluir a simple vista, el valor que nos da un speed up también nos la da una función. Esta se define de la siguiente forma:
 
+<br>
+<div align="center">
 S(P)= 5.0942 + 0.5862 * ln(P)
+</div>
+</br>
 
 Gráfica de la fórmula. El eje x representa el número de hilos y el eje y el incremento en la eficiencia:
 
@@ -64,7 +73,11 @@ Gráfica de la fórmula. El eje x representa el número de hilos y el eje y el i
 
 En este caso, los números presentes son las eficiencias obtenidas y el ln(P), el porqué se escogió una ecuación con estas propiedades, se debe al comportamiento que presentó el speed up, al ser abrupto al inicio. Como tal la ecuación no presenta una eficiencia infalible, pero sí una considerable, pudiendo demostrar esto con la ley de Amdahl.
 
+<br>
+<div align="center">
 S = 1  /  (1 - p + p / s)
+</div>
+</br>
 
 Este teorema permite calcular la mejora máxima de un sistema, donde p es la fracción del sistema, o para fines del proyecto, la fracción paralelizable del sistema,  y s el factor de aceleración de dicha parte. Eugene Myron Amdahl también indica que, al tender p a infinito (para el cálculo p ≈ 0.907), el valor resultante sería similar a 10.75, concordando con el valor obtenido en las pruebas, y en la ecuación al calcular con P igual a 16384, corresponde con el aproximado a infinito que el teorema propone.
 

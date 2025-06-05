@@ -23,6 +23,7 @@ Como tal todas las versiones realizadas siguiendo la misma estructura, main defi
 
 Procediendo a los resultados, estos son los tiempos de ejecución de cada programa:
 
+![image](https://github.com/user-attachments/assets/a7cd0805-48cc-4fd4-af7e-4ded89bae922)
 
 	
 Con esto podemos calcular tanto la eficiencia que las versiones que dividen presentan sobre el modelo de ejecución secuencial, permitiendo así, el tener una vara de medir igual para cada método que busca mejorar el tiempo del algoritmo secuencial. Para esto se emplean las siguientes ecuaciones:
@@ -40,6 +41,8 @@ Eficiencia = Speed up / Número de procesadores totales empleados
 
 
 Tabla con cálculos:
+
+![image](https://github.com/user-attachments/assets/8d8f20e1-9327-4ce6-90e0-3f53d685f403)
 
 
 ### Conclusiones de los resultados
@@ -84,6 +87,7 @@ S = 1  /  (1 - p + p / s)
 
 Este teorema permite calcular la mejora máxima de un sistema, donde p es la fracción del sistema, o para fines del proyecto, la fracción paralelizable del sistema,  y s el factor de aceleración de dicha parte. Eugene Myron Amdahl también indica que, al tender p a infinito (para el cálculo p ≈ 0.907), el valor resultante sería similar a 10.75, concordando con el valor obtenido en las pruebas, y en la ecuación al calcular con P igual a 16384, corresponde con el aproximado a infinito que el teorema propone.
 
+En conclusión, un mayor número de hilos empleados si dará un menor tiempo de ejecución, más el tiempo que nos ahorra cada hilo se merma en razón del tamaño del conjunto de hilos.
 
 ## Conclusiones personales del proyecto y la clase
 

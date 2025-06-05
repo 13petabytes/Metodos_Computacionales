@@ -32,6 +32,8 @@ const unsigned int NUM_THREADS = thread::hardware_concurrency();
 long long sumatoria = 0;
 mutex mtx;
 
+
+// Algoritmo para determinar si un número n es primo
 bool esPrimo(int n) {
     if (n < 2)
         return false;
@@ -43,12 +45,15 @@ bool esPrimo(int n) {
     return true;
 }
 
-
+// Función que suma los números primos en un rango y subdivición de la tarea entre hilos
 void sumaPrimos(int id_hilo) {
+    // Dividir el rango de números entre los hilos
+
     int bloque = LIMITE / NUM_THREADS;
     int inicio = id_hilo * bloque + 1;
     int fin = (id_hilo == NUM_THREADS - 1) ? LIMITE : (id_hilo + 1) * bloque;
 
+    // Inicializar la suma local para cada hilo
     long long suma_local = 0;
     for (int i = inicio; i <= fin; ++i) {
         if (esPrimo(i)) {
@@ -56,7 +61,9 @@ void sumaPrimos(int id_hilo) {
         }
     }
 
+    // Bloquear el acceso a la variable compartida sumatoria
     lock_guard<mutex> lock(mtx);
+    // Sumar la suma local al total
     sumatoria += suma_local;
 }
 

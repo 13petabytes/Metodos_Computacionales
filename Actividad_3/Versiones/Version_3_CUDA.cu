@@ -30,6 +30,9 @@
 #include <cmath>
 #include <cuda_runtime.h>
 
+
+
+// Algoritmo para determinar si un número n es primo
 __device__ bool esPrimo(int n) {
     if (n < 2) return false;
     int raiz = (int)sqrtf((float)n);
@@ -39,19 +42,24 @@ __device__ bool esPrimo(int n) {
     return true;
 }
 
+// Función que suma los números primos en un rango y subdivición de la tarea entre hilos
 __global__ void sumaPrimos(long long* resultados) {
+    // Cada hilo calcula su índice único basado en el bloque y el hilo
+    // El índice se usa para dividir el trabajo entre los hilos
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     int totalThreads = gridDim.x * blockDim.x;
 
+    // Inicializar la suma local para cada hilo
     long long suma_local = 0;
 
-    // Repartir el trabajo entre los hilos
+    // Cada hilo calcula la suma de primos en un rango específico
+    // Se divide el trabajo entre los hilos, cada hilo procesa números con un paso igual al número total de hilos
     for (int i = idx + 1; i <= 5000000; i += totalThreads) {
         if (esPrimo(i)) {
             suma_local += i;
         }
     }
-
+    // Almacenar el resultado local en el arreglo de resultados
     resultados[idx] = suma_local;
 }
 
@@ -83,6 +91,7 @@ int main() {
 
     cudaMemcpy(h_resultados, d_resultados, TOTAL_THREADS * sizeof(long long), cudaMemcpyDeviceToHost);
 
+    // Sumar los resultados de todos los hilos
     long long suma_total = 0;
     for (int i = 0; i < TOTAL_THREADS; i++) {
         suma_total += h_resultados[i];

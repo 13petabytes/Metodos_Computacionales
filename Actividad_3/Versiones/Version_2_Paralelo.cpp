@@ -14,6 +14,7 @@
     Numero de hilos utilizados: 11
     Speedup: 6.5
     Eficiencia: 0.59 (59%)
+    Complejidad: O(n√n) donde n es = 5000000
 */
 
 #include <iostream>

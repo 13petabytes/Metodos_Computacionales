@@ -10,6 +10,7 @@
 /*
     Resultado de la suma de los primos entre 1 y 5000000: 838596693108
     Tiempo: 1729 ms
+    Complejidad: O(n√n) donde n es = 5000000
 */
 #include <iostream>
 #include <cmath>
@@ -19,6 +20,7 @@ using namespace std;
 using namespace std::chrono;
 
 // Algoritmo para determinar si un número n es primo
+// Complejidad O(√n) 
 bool esPrimo(int n) {
     if (n < 2)
         return false;
@@ -31,6 +33,7 @@ bool esPrimo(int n) {
 }
 
 // Función que suma los números primos en un rango
+// Complejidad  O(n^{3/2})
 long long sumaPrimos() {
     long long suma = 0;
     for (int i = 1; i <= 5000000; ++i) {
@@ -40,6 +43,9 @@ long long sumaPrimos() {
     return suma;
 }
 
+
+// Función principal
+// Complejidad O(1)
 int main() {
     auto inicio = high_resolution_clock::now();
 

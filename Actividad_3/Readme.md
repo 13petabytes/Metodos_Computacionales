@@ -87,7 +87,8 @@ Este teorema permite calcular la mejora máxima de un sistema, donde p es la fra
 Si bien no voy a continuar mi vida universitaria en la carrera de ITC, he podido disfrutar de la clase, y en particular de este proyecto,  debido a su relación con teoremas matemáticos, en los que me hubiera gustado profundizar más. Pude darme cuenta que genuinamente me faltaban matemáticas para darle cuerpo a la teoría con la que trabajaba. Me llevo buenas experiencias y necesarias reflexiones sobre mi deseo vocacional. Muchas gracias por el semestre.
 
 
-#Referencias:
+# Referencias:
+
 Amdahl, Gene M. (1967). "Validity of the Single Processor Approach to Achieving Large-Scale Computing Capabilities" (PDF). AFIPS Conference Proceedings (30): 483–485. doi:10.1145/1465482.1465560. S2CID 195607370.
 
 

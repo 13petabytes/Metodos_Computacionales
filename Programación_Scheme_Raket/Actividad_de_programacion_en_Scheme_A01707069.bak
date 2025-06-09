@@ -1,0 +1,7 @@
+#lang racket
+
+(display "Incerte la cantidad de grados Farenheits a convertir");
+(newline)
+(define F(read));
+(define(fahrenheit-to-celsius)
+(*(*0.2(- F 32))0.1111));

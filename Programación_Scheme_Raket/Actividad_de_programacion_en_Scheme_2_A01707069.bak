@@ -1,0 +1,7 @@
+#lang racket
+
+(display "Ingresa un número para evaluar si es positivo, negativo o 0: ")
+(newline)
+
+(define sign(
+  (lambda (N)))

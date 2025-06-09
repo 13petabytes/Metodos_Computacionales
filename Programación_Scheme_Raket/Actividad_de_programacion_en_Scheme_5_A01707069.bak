@@ -1,0 +1,12 @@
+#lang racket
+(define (how-many-positives lst)
+  (cond
+    ((null? lst) 0) ; Si la lista está vacía, retorna 0
+    ((positive? (car lst)) (+ 1 (how-many-positives (cdr lst)))) ; Si el primer elemento es positivo, suma 1
+    (else (how-many-positives (cdr lst))))) ; Si no es positivo, sigue con el resto de la lista
+
+(define (count b lst)
+  (cond
+    ((null? lst) 0) ; Si la lista está vacía, retorna 0
+    ((equal? (car lst) b) (+ 1 (count b (cdr lst)))) ; Si el primer elemento es b, suma 1
+    (else (count b (cdr lst))))) ; Si no es igual a b, sigue con el resto de la lista

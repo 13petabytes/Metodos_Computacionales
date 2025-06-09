@@ -1,0 +1,28 @@
+#lang racket
+(display "Incerte una lista paraduplicarla")
+(newline)
+(define duplicate 
+  (lambda (lst)
+    (if (null? lst)
+        '()
+        (cons (car lst) (cons (car lst) (duplicate (cdr lst))))))))
+
+(duplicate (read))
+
+(define positives 
+  (lambda (lst)
+    (filter (lambda (x) (> x 0)) lst)))
+
+(define list-of-symbols? 
+  (lambda (lst)
+    (cond ((null? lst) #t)
+          ((symbol? (car lst)) (list-of-symbols? (cdr lst)))
+          (else #f))))
+
+(define swapper 
+  (lambda (a b lst)
+    (map (lambda (x)
+           (cond ((equal? x a) b)
+                 ((equal? x b) a)
+                 (else x)))
+         lst)))

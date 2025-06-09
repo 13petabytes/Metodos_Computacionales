@@ -1,5 +1,5 @@
 # Metodos Computacionales
 
-## Actividades Integradoras
+## Actividades Integradoras Y Tareas
 
 Por: Fermín Nieto, A01707069

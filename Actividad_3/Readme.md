@@ -33,10 +33,11 @@ En los casos en los que se empleó la división por hilos y la tecnología CUDA,
 
 Procediendo a los resultados, estos son los tiempos de ejecución de cada programa:
 
-![image](https://github.com/user-attachments/assets/a7cd0805-48cc-4fd4-af7e-4ded89bae922)
+![image](https://github.com/user-attachments/assets/c837db2b-b62d-4adc-a601-05f1d0e41017)
+
 
 	
-Con esto podemos calcular tanto la eficiencia que las versiones que dividen presentan sobre el modelo de ejecución secuencial, permitiendo así, el tener una vara de medir igual para cada método que busca mejorar el tiempo del algoritmo secuencial. Para esto se emplean las siguientes ecuaciones:
+Con esto podemos calcular tanto la eficiencia que las versiones que dividen presentan sobre el modelo de ejecución secuencial, esto empleando el promedio del tiempo que tomo a cada una de las ejecuciones, permitiendo así el tener una vara de medir igual para cada método que busca mejorar el tiempo del algoritmo secuencial. Para esto se emplean las siguientes ecuaciones:
 
 
 <br>
@@ -52,7 +53,8 @@ Eficiencia = Speed up / Número de procesadores totales empleados
 
 Tabla con cálculos:
 
-![image](https://github.com/user-attachments/assets/8d8f20e1-9327-4ce6-90e0-3f53d685f403)
+![image](https://github.com/user-attachments/assets/ddfdef4c-4551-49dd-81fe-2329e3c0a7f4)
+
 
 
 ### Conclusiones de los resultados
@@ -87,7 +89,16 @@ Gráfica de la fórmula. El eje x representa el número de hilos y el eje y el i
 ![image](https://github.com/user-attachments/assets/b91ae663-9abd-4fcb-af7c-bd2ffb8df7e1)
 
 
-En este caso, los números presentes son las eficiencias obtenidas y el ln(P), el porqué se escogió una ecuación con estas propiedades, se debe al comportamiento que presentó el speed up, al ser abrupto al inicio. Como tal la ecuación no presenta una eficiencia infalible, pero sí una considerable, pudiendo demostrar esto con la ley de Amdahl.
+Al observar el comportamiento del speed up en función del número de hilos 
+𝑃
+P, notamos que la aceleración crece rápido al inicio, pero conforme aumentan los hilos, la mejora se vuelve cada vez más lenta. Por eso se eligió una función logarítmica para ajustarlo, que tiene la forma:
+
+<br> <div align="center"> S(P) = 5.0942 + 0.5862 * ln(P) </div> </br>
+Los números 5.0942 y 0.5862 son constantes calculadas a partir de los dos puntos conocidos: un speed up de 6.5 con 11 hilos y uno de 10.7832 con 16384 hilos. Para obtener estos valores se resolvió un sistema de ecuaciones usando el logaritmo natural de 
+𝑃
+P. Esta ecuación no pretende ser una fórmula exacta de eficiencia, sino una aproximación que refleja el comportamiento observado en los datos.
+
+De esta forma, se puede demostrar que el speed up crece pero con un rendimiento decreciente conforme se agregan más hilos, concepto que también es consistente con la Ley de Amdahl.
 
 <br>
 <div align="center">

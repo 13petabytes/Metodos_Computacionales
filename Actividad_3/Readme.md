@@ -110,8 +110,11 @@ Para entender cómo se obtuvieron los coeficientes, se resolvió el siguiente si
 <br> 
 <div align="center"> 
 	6.5 = a + b * ln(11)
-	10.7832 = a + b * ln(16384)
+	
 </div> 
+<div align="center"> 
+10.7832 = a + b * ln(16384)
+</div>
 </br>
 
 De donde se obtuvo:
@@ -119,8 +122,10 @@ De donde se obtuvo:
 <br> <div align="center">
 
 a = 5.0942
-b = 0.5862
 
+<div align="center"> 
+b = 0.5862
+</div>
 </div> </br>
 y así la función ajustada queda:
 

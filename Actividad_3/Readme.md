@@ -93,22 +93,40 @@ Al observar el comportamiento del speed up en función del número de hilos
 𝑃
 P, notamos que la aceleración crece rápido al inicio, pero conforme aumentan los hilos, la mejora se vuelve cada vez más lenta. Por eso se eligió una función logarítmica para ajustarlo, que tiene la forma:
 
-<br> <div align="center"> S(P) = 5.0942 + 0.5862 * ln(P) </div> </br>
+<br> <div align="center"> \( S(P) = 5.0942 + 0.5862 \cdot \ln(P) \) </div> </br>
 Los números 5.0942 y 0.5862 son constantes calculadas a partir de los dos puntos conocidos: un speed up de 6.5 con 11 hilos y uno de 10.7832 con 16384 hilos. Para obtener estos valores se resolvió un sistema de ecuaciones usando el logaritmo natural de 
 𝑃
 P. Esta ecuación no pretende ser una fórmula exacta de eficiencia, sino una aproximación que refleja el comportamiento observado en los datos.
 
 De esta forma, se puede demostrar que el speed up crece pero con un rendimiento decreciente conforme se agregan más hilos, concepto que también es consistente con la Ley de Amdahl.
 
-<br>
-<div align="center">
-S = 1  /  (1 - p + p / s)
-</div>
-</br>
+Para entender cómo se obtuvieron los coeficientes, se resolvió el siguiente sistema con los puntos conocidos:
 
-Este teorema permite calcular la mejora máxima de un sistema, donde p es la fracción del sistema, o para fines del proyecto, la fracción paralelizable del sistema,  y s el factor de aceleración de dicha parte. Eugene Myron Amdahl también indica que, al tender p a infinito (para el cálculo p ≈ 0.907), el valor resultante sería similar a 10.75, concordando con el valor obtenido en las pruebas, y en la ecuación al calcular con P igual a 16384, corresponde con el aproximado a infinito que el teorema propone.
+<br> <div align="center"> \[ \begin{cases} 6.5 = a + b \cdot \ln(11) \\ 10.7832 = a + b \cdot \ln(16384) \end{cases} \] </div> </br>
+De donde se obtuvo:
 
-En conclusión, un mayor número de hilos empleados si dará un menor tiempo de ejecución, más el tiempo que nos ahorra cada hilo se merma en razón del tamaño del conjunto de hilos.
+<br> <div align="center"> \[ a = 5.0942, \quad b = 0.5862 \] </div> </br>
+y así la función ajustada queda:
+
+<br> <div align="center"> \[ S(P) = 5.0942 + 0.5862 \cdot \ln(P) \] </div> </br>
+Por otro lado, la Ley de Amdahl permite calcular la mejora máxima que se puede obtener al paralelizar una fracción 
+𝑝
+p de un sistema, según la ecuación:
+
+<br> <div align="center"> \[ S = \frac{1}{(1 - p) + \frac{p}{s}} \] </div> </br>
+Donde 
+𝑝
+p es la fracción paralelizable del sistema y 
+𝑠
+s el factor de aceleración de dicha parte. Eugene Myron Amdahl indica que, al tender 
+𝑝
+p a infinito (en este caso, 
+𝑝
+≈
+0.907
+p≈0.907), el valor resultante del speed up es cercano a 10.75, lo cual concuerda con el valor experimental obtenido para 16384 hilos. Esto confirma que el modelo logarítmico y la Ley de Amdahl se complementan en la explicación del comportamiento del speed up.
+
+En conclusión, un mayor número de hilos reduce el tiempo de ejecución, pero el beneficio que aporta cada hilo disminuye conforme aumenta el total de hilos ejecutándose.
 
 ## Conclusiones personales del proyecto y la clase
 

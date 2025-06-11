@@ -93,7 +93,12 @@ Al observar el comportamiento del speed up en función del número de hilos
 𝑃
 P, notamos que la aceleración crece rápido al inicio, pero conforme aumentan los hilos, la mejora se vuelve cada vez más lenta. Por eso se eligió una función logarítmica para ajustarlo, que tiene la forma:
 
-<br> <div align="center"> \( S(P) = 5.0942 + 0.5862 \cdot \ln(P) \) </div> </br>
+<br> 
+<div align="center">
+	S(P) = 5.0942 + 0.5862 * ln(P)
+</div> 
+</br>
+
 Los números 5.0942 y 0.5862 son constantes calculadas a partir de los dos puntos conocidos: un speed up de 6.5 con 11 hilos y uno de 10.7832 con 16384 hilos. Para obtener estos valores se resolvió un sistema de ecuaciones usando el logaritmo natural de 
 𝑃
 P. Esta ecuación no pretende ser una fórmula exacta de eficiencia, sino una aproximación que refleja el comportamiento observado en los datos.
@@ -102,18 +107,29 @@ De esta forma, se puede demostrar que el speed up crece pero con un rendimiento 
 
 Para entender cómo se obtuvieron los coeficientes, se resolvió el siguiente sistema con los puntos conocidos:
 
-<br> <div align="center"> \ \begin{cases} 6.5 = a + b \cdot \ln(11) \\ 10.7832 = a + b \cdot \ln(16384) \end{cases} \ </div> </br>
+<br> 
+<div align="center"> 
+	6.5 = a + b * ln(11)
+	10.7832 = a + b * ln(16384)
+</div> 
+</br>
+
 De donde se obtuvo:
 
-<br> <div align="center"> \ a = 5.0942, \quad b = 0.5862 \ </div> </br>
+<br> <div align="center">
+
+a = 5.0942
+b = 0.5862
+
+</div> </br>
 y así la función ajustada queda:
 
-<br> <div align="center"> \ S(P) = 5.0942 + 0.5862 \cdot \ln(P) \ </div> </br>
+<br> <div align="center"> S(P) = 5.0942 + 0.5862 * ln(P)</div> </br>
 Por otro lado, la Ley de Amdahl permite calcular la mejora máxima que se puede obtener al paralelizar una fracción 
 𝑝
 p de un sistema, según la ecuación:
 
-<br> <div align="center"> \ S = 1  /  (1 - p + p / s) </div> </br>
+<br> <div align="center">  S = 1  /  (1 - p + p / s) </div> </br>
 Donde 
 𝑝
 p es la fracción paralelizable del sistema y 

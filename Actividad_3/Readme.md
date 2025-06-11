@@ -102,18 +102,18 @@ De esta forma, se puede demostrar que el speed up crece pero con un rendimiento 
 
 Para entender cómo se obtuvieron los coeficientes, se resolvió el siguiente sistema con los puntos conocidos:
 
-<br> <div align="center"> \[ \begin{cases} 6.5 = a + b \cdot \ln(11) \\ 10.7832 = a + b \cdot \ln(16384) \end{cases} \] </div> </br>
+<br> <div align="center"> \ \begin{cases} 6.5 = a + b \cdot \ln(11) \\ 10.7832 = a + b \cdot \ln(16384) \end{cases} \ </div> </br>
 De donde se obtuvo:
 
-<br> <div align="center"> \[ a = 5.0942, \quad b = 0.5862 \] </div> </br>
+<br> <div align="center"> \ a = 5.0942, \quad b = 0.5862 \ </div> </br>
 y así la función ajustada queda:
 
-<br> <div align="center"> \[ S(P) = 5.0942 + 0.5862 \cdot \ln(P) \] </div> </br>
+<br> <div align="center"> \ S(P) = 5.0942 + 0.5862 \cdot \ln(P) \ </div> </br>
 Por otro lado, la Ley de Amdahl permite calcular la mejora máxima que se puede obtener al paralelizar una fracción 
 𝑝
 p de un sistema, según la ecuación:
 
-<br> <div align="center"> \[ S = \frac{1}{(1 - p) + \frac{p}{s}} \] </div> </br>
+<br> <div align="center"> \ S = 1  /  (1 - p + p / s) </div> </br>
 Donde 
 𝑝
 p es la fracción paralelizable del sistema y 

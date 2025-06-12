@@ -10,9 +10,9 @@
 
 /*
     Resultado de la suma de los primos entre 1 y 5000000: 838596693108
-    Tiempo de ejecución CUDA: 160.342 ms
+    Tiempo de ejecución CUDA: 160.34 ms
     Tiempo de ejecución secuencial: 1729 ms
-    Speedup: 10.7832   
+    Speedup: 10.7833  
     BLOCKS = 512;
     THREADS = 32;
     Eficiencia: 0.000658 (0.0658%)

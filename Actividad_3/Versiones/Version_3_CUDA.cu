@@ -1,12 +1,10 @@
-// =================================================================
-//
-// File: Version_3_CUDA.cu
-// Project: Actividad 3 - Verificación de números primos (CUDA)
-// Author: Fermín Nieto
-// Description: Da el resultado de la suma de los primeros 5000000 números primos.
-//              Utiliza procesamiento paralelo con CUDA.
-//
-// =================================================================
+/*
+ File: Version_3_CUDA.cu
+ Project: Actividad 3 - Verificación de números primos (CUDA)
+ Author: Fermín Nieto
+ Description: Da el resultado de la suma de los primeros 5000000 números primos.
+              Utiliza procesamiento paralelo con CUDA.
+*/
 
 /*
     Resultado de la suma de los primos entre 1 y 5000000: 838596693108

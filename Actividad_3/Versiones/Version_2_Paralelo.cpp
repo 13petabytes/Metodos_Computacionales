@@ -1,11 +1,9 @@
-/* =================================================================
-
+/* 
  File: Version_1_Secuencial.cpp
  Project: Actividad 3 - Verificación de números primos
  Author: Fermín Nieto
  Description: Da el resultado de la suma de los primeros 5000000 de numeros. Forma secuencial.
-
-*/ =================================================================
+*/ 
 
 /*
     Resultado de la suma de los primos entre 1 y 5000000: 838596693108
